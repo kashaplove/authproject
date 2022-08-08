@@ -7,6 +7,7 @@
 </head>
 <body>
 <div class="container mt-4">
+    <?php if (!isset($_COOKIE['user'])):?>
     <div class="row">
         <div class="col">
             <h1 class="mb-3">Форма регистрации</h1>
@@ -26,6 +27,13 @@
             </form>
         </div>
     </div>
+
+    <?php else: ?>
+    <h1>Привет, <?=$_COOKIE['user']?>! Вы авторизованы!</h1>
+        <form action="logout.php">
+            <button class="btn btn-outline-danger">Выйти</button>
+        </form>
+    <?php endif;?>
 </div>
 </body>
 </html>
