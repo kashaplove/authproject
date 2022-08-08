@@ -20,7 +20,7 @@ if (mb_strlen($login) < 5 || mb_strlen($login)>100)
 
 $password = md5($password."jcorepmi2");
 
-require 'configDB.php';
+require '../configDB.php';
 $sql = "INSERT INTO `users` (login, name, password) VALUES (:login, :name, :password)";
 $query = $pdo->prepare($sql);
 $query->execute(['login' => $login, 'name' => $name, 'password' => $password]);
